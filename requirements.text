@@ -1,0 +1,10 @@
+streamlit: 1.25.0
+PIL: 9.5.0
+ImageEnhance: 0.7.5
+mysql.connector: 8.1.0
+io: 3.7.7
+pandas: 2.0.3
+easyocr: 1.7.0
+numpy: 1.25.1
+re: 2.2.0
+fuzzywuzzy: 0.18.0
