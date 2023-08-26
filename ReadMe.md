@@ -33,7 +33,7 @@ Ensure you have the following dependencies installed:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/Shyams728/https---github.com-Shyams728-bizcard_ocr_project/edit/main.git
+   git clone https://github.com/Shyams728/bizcard_ocr_project/edit/main.git
    ```
 
 2. Install the required Python packages:
