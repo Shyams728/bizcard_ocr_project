@@ -84,11 +84,9 @@ To integrate with MySQL, follow these steps:
 
 For questions or issues, please contact [Shyamsundar Dharwad](mailto:shyamsundardharwad@gmail.com).
 
----
-
 Please note that the script utilizes various approximate matching techniques to ensure accurate extraction of information.
-
+---
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
