@@ -1,5 +1,3 @@
-
-```markdown
 # BizCardX: Business Card OCR
 
 This repository contains a _Python script_ that utilizes `Optical Character Recognition (OCR)` to extract information from images of business cards. The script employs the `easyocr` library for text extraction and incorporates various techniques, `including regular expressions`, for approximate string matching. This ensures the accurate extraction of relevant data. The extracted information is then `stored in MySQL`, `retrieved`, and displayed in `Streamlit GUI`.
