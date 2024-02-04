@@ -1,6 +1,6 @@
 # BizCardX: Business Card OCR
 
-This repository contains a _Python script_ that utilizes `Optical Character Recognition (OCR)` to extract information from images of business cards. The script employs the `easyocr` library for text extraction and incorporates various techniques, `including regular expressions`, for approximate string matching. This ensures the accurate extraction of relevant data. The extracted information is then `stored in MySQL`, `retrieved`, and displayed in `Streamlit GUI`.
+This repository contains a _Python code_ that utilizes `Optical Character Recognition (OCR)` to extract information from images of business cards. The script employs the `easyocr` library for text extraction and incorporates various techniques, `including regular expressions`, for approximate string matching. This ensures the accurate extraction of relevant data. The extracted information is then `stored in Sqlite3`, `retrieved`, and displayed in `Streamlit GUI`.
 
 ## Optimized Image Processing
 
@@ -12,7 +12,6 @@ The script applies a series of preprocessing steps to enhance the images before 
 
 _These optimized images are then input into the OCR algorithm, resulting in improved character recognition accuracy. Additionally, regular expressions are extensively used to clean the extracted text and obtain the required results._
 
----
 
 ## Getting Started
 
@@ -24,7 +23,7 @@ Ensure you have the following dependencies installed:
 - `streamlit`
 - `easyocr`
 - `Python Imaging Library (PIL)`
-- `mysql-connector-python` (for MySQL integration)
+- `sqlite3` (for SQL integration)
 - `pandas`
 - `numpy`
 
@@ -44,7 +43,7 @@ Ensure you have the following dependencies installed:
 5. Running the Application:
 
    ```bash
-   streamlit run ocr_card_reader.py
+   streamlit bizcard_reader.py
    ```
 
 
@@ -54,7 +53,7 @@ Ensure you have the following dependencies installed:
 
 ## Extracted Information
 ```python
-Extracted Information: 
+Extracted sample Information: 
 {
  'card_holder_name': 'Amit kumar',
  'company_name': 'GLOBAL INSURANCE',
@@ -69,16 +68,6 @@ Extracted Information:
  }
 ```
 
-### MySQL Integration
-
-To integrate with MySQL, follow these steps:
-
-1. Enter the MySQL host, username, password, and database name in the sidebar.
-2. Click the "Connect" button to establish a connection.
-3. Use the "Save to Database" button to save the extracted information to the MySQL database.
-4. Click the "Retrieve from Database" button to retrieve and display data from the MySQL database.
-
----
 
 ## Contact
 
