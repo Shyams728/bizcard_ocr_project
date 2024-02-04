@@ -61,11 +61,12 @@ Extracted sample Information:
  'email': 'hello@globalcom',
  'mobile_numbers': ['123-456-7569'],
  'website': '.global.com'
- 'address': {'area': ['123', 'global', 'St'],
-             'city': 'Erode',
-             'pin_code': '600115',
-             'state': 'TamilNadu'}
- }
+ 'address': {
+               'area': ['123', 'global', 'St'],
+               'city': 'Erode',
+               'pin_code': '600115',
+               'state': 'TamilNadu'}
+             }
 ```
 
 
