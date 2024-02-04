@@ -43,7 +43,7 @@ Ensure you have the following dependencies installed:
 5. Running the Application:
 
    ```bash
-   streamlit bizcard_reader.py
+   streamlit run bizcard_reader.py
    ```
 
 
