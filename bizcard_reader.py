@@ -142,7 +142,13 @@ def preprocess_extracted_info(extracted_info):
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
     extracted_info['designation'] = extracted_info['designation'].strip().title()
     extracted_info['email'] = extracted_info['email'].lower()
-    extracted_info['website'] = extracted_info['website'].lower()
+    # extracted_info['website'] = extracted_info['website'].lower()
+    website = extracted_info['website'].strip().lower()
+    if 'www.' not in website:
+        # If "www" is missing, add it to the beginning of the website
+        website_parts = website.split('.')
+        website_parts[0] = 'www'
+        extracted_info['website'] = '.'.join(website_parts)
     extracted_info['address']['city'] = extracted_info['address']['city'].title()
 
     return extracted_info
