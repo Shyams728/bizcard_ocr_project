@@ -145,15 +145,15 @@ def preprocess_extracted_info(extracted_info):
         number = extracted_info['mobile_numbers'][i].strip()
         if number and not number.startswith('+'):
             extracted_info['mobile_numbers'][i] = '+' + number
-    
-    email = extracted_info['email'].strip().lower()
+    extracted_info['email'] = extracted_info['email'].lower()
+    email = extracted_info['email'].strip()
     if '@' in email and 'com' in email:
         if 'com' in email and '.' not in email.split('com')[-1]:
             # Replace 'com' with '.com' if the dot is missing
             extracted_info['email'] = email.replace('com', '.com')
 
 
-
+    extracted_info['website'] = extracted_info['website'].lower()
     website = extracted_info['website'].lower()
     if 'www.' not in website:
         # Split the website URL by dots ('.') only
