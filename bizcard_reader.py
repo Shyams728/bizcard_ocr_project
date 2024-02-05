@@ -251,7 +251,7 @@ def display_bizcard_image(current_row):
         bizcard_image_data = current_row['image']
         # Convert image data to PIL image
         bizcard_image = Image.open(BytesIO(bizcard_image_data))
-        st.image(bizcard_image, caption='Business Card', width=300)
+        st.image(bizcard_image, caption='Business Card', width=500)
         # st.image(bizcard_image, caption='Business Card', use_column_width=True)
     except Exception as e:
         st.error(f"Error displaying business card image: {str(e)}")
