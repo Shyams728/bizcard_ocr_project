@@ -156,8 +156,9 @@ def preprocess_extracted_info(extracted_info):
     if 'www.' not in website:
         # If "www" is missing, add it to the beginning of the website
         website_parts = [part.strip() for part in website.split('.') + website.split(' ') if part.strip()]
-        website_parts[0] = 'www'
+        website_parts.insert(0, 'www')  # Insert 'www' at the beginning
         extracted_info['website'] = '.'.join(website_parts)
+    
     extracted_info['address']['city'] = extracted_info['address']['city'].title()
 
     return extracted_info
