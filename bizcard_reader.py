@@ -141,8 +141,13 @@ def preprocess_extracted_info(extracted_info):
     extracted_info['company_name'] = re.sub(r'\d+', '', extracted_info['company_name']).strip().title()
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
     extracted_info['designation'] = extracted_info['designation'].strip().title()
-    extracted_info['email'] = extracted_info['email'].lower()
-    # extracted_info['website'] = extracted_info['website'].lower()
+    email = extracted_info['email'].strip().lower()
+    if '@' in email and 'com' in email:
+        if email.endswith('com') and '.' not in email.split('@')[-1]:
+            # Add a dot before 'com' if it's missing
+            email_parts = email.split('@')
+            email_parts[-1] = email_parts[-1] + '.'
+            extracted_info['email'] = '@'.join(email_parts)
     website = extracted_info['website'].strip().lower()
     if 'www.' not in website:
         # If "www" is missing, add it to the beginning of the website
