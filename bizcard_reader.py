@@ -141,12 +141,17 @@ def preprocess_extracted_info(extracted_info):
     extracted_info['company_name'] = re.sub(r'\d+', '', extracted_info['company_name']).strip().title()
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
     extracted_info['designation'] = extracted_info['designation'].strip().title()
+    for i in range(len(extracted_info['mobile_numbers'])):
+        number = extracted_info['mobile_numbers'][i].strip()
+        if number and not number.startswith('+'):
+            extracted_info['mobile_numbers'][i] = '+' + number
+    
     email = extracted_info['email'].strip().lower()
     if '@' in email and 'com' in email:
         if 'com' in email and '.' not in email.split('com')[-1]:
             # Replace 'com' with '.com' if the dot is missing
             extracted_info['email'] = email.replace('com', '.com')
-            
+
     website = extracted_info['website'].strip().lower()
     if 'www.' not in website:
         # If "www" is missing, add it to the beginning of the website
