@@ -379,7 +379,7 @@ def main():
     st.markdown("""
     <style>
     .big-font {
-        font-size:25px !important;
+        font-size:30px !important;
     }
     </style>
     """, unsafe_allow_html=True)
