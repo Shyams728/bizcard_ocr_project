@@ -180,7 +180,7 @@ def save_to_database(sqlite_conn, extracted_info, image):
         ', '.join(extracted_info['address']['area']),
         extracted_info['address']['city'],
         extracted_info['address']['state'],
-        extracted_info['address']['pin_code'],
+        extracted_info['addres``s']['pin_code'],
         img_bytes 
     )
     cursor.execute(insert_query, values)
@@ -379,13 +379,13 @@ def main():
                         st.subheader("Extracted Information")
                         display_information(extracted_info)
                     
-                with display_main: 
-                    # Save to database 
-                    if st.button('Save the Extracted Information and Image to Database'):
-                        conn = sqlite3.connect('business_cards.db') 
-                        create_table_in_sqlite(conn) 
-                        save_to_database(conn, extracted_info, image) 
-                        st.success('Saved to database!')
+                save_data = display_main.button('Save the Extracted Information and Image to Database')
+                # Save to database 
+                if save_data:
+                    conn = sqlite3.connect('business_cards.db') 
+                    create_table_in_sqlite(conn) 
+                    save_to_database(conn, extracted_info, image) 
+                    st.success('Saved to database!')
 
     if selcted_option == "***View & Modify The Data***":
         with choice_box:
