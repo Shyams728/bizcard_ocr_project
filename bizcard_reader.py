@@ -386,7 +386,6 @@ def main():
 
     st.markdown('<p class="big-font" style="color:blue;">BizCardX: Business Card Information Extractor with OCR</p>', unsafe_allow_html=True)
 
-    st.title("BizCardX: Business Card Information Extractor with OCR")
     
     st.markdown("""
     <div style="background-color: #d8e2dc; padding: 20px; border-radius: 10px;">
