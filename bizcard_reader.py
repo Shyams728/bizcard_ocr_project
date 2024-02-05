@@ -146,7 +146,7 @@ def preprocess_extracted_info(extracted_info):
         if email.endswith('com') and '.' not in email.split('@')[-1]:
             # Add a dot before 'com' if it's missing
             email_parts = email.split('@')
-            email_parts[-1] = email_parts[-1] + '.'
+            email_parts[-1] = '.' + email_parts[-1]
             extracted_info['email'] = '@'.join(email_parts)
     website = extracted_info['website'].strip().lower()
     if 'www.' not in website:
