@@ -135,6 +135,20 @@ def extract_additional_info(extracted_info, extracted_text):
     return extracted_info
 
 
+# Preprocess extracted information before saving to database
+def preprocess_extracted_info(extracted_info):
+
+    extracted_info['company_name'] = extracted_info['company_name'].strip().title()
+    extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
+    extracted_info['designation'] = extracted_info['designation'].strip().title()
+    extracted_info['email'] = extracted_info['email'].lower()
+    extracted_info['website'] = extracted_info['website'].lower()
+    extracted_info['address']['city'] = extracted_info['address']['city'].title()
+
+    return extracted_info
+
+
+
 def create_table_in_sqlite(sqlite_conn):
     cursor = sqlite_conn.cursor()
     cursor.execute("""
@@ -380,10 +394,12 @@ def main():
                         # Display extracted information   
                         st.subheader("Extracted Information")
                         display_information(extracted_info)
+                        final_info =preprocess_extracted_info(extracted_info)
+                        display_main.success('standardising the data before saving')
                         #save the data to data base
                         conn = sqlite3.connect('business_cards.db') 
                         create_table_in_sqlite(conn) 
-                        save_to_database(conn, extracted_info, image) 
+                        save_to_database(conn, final_info, image) 
                         display_main.success('Saved to database!')
 
     if selcted_option == "***View & Modify The Data***":
