@@ -180,7 +180,7 @@ def save_to_database(sqlite_conn, extracted_info, image):
         ', '.join(extracted_info['address']['area']),
         extracted_info['address']['city'],
         extracted_info['address']['state'],
-        extracted_info['addres``s']['pin_code'],
+        extracted_info['address']['pin_code'],
         img_bytes 
     )
     cursor.execute(insert_query, values)
