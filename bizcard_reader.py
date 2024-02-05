@@ -170,8 +170,6 @@ def preprocess_extracted_info(extracted_info):
         website_parts[0] = 'www'
         extracted_info['website'] = '.'.join(website_parts)
 
-
-
     
     extracted_info['address']['city'] = extracted_info['address']['city'].title()
 
@@ -357,8 +355,7 @@ def data_card():
             # Refresh the data after deletion
             data = retrieve_from_database(sqlite_conn)
 
-        # else:
-        #     st.warning("No business cards found in the database.")
+
 
     except Exception as e:
         st.error(f"Error: {str(e)}")
@@ -404,7 +401,7 @@ def main():
     # Radio buttons for selecting query type
     selcted_option = st.radio(
         "Select the option",
-        ["***Upload a File***", "***View & Modify The Data***"],
+        ["***Upload a File***", "***View & Modify the Data***"],
         captions = ["To Exctract data from the given business card.", "To check the data in the database and, if necessary, remove the business card from the database",],
         horizontal= True ,
         index=1  # Default selection index 
@@ -433,7 +430,7 @@ def main():
                         # Display extracted information   
                         st.subheader("Extracted Information")
                         display_information(extracted_info)
-                        final_info =preprocess_extracted_info(extracted_info)
+                        final_info = preprocess_extracted_info(extracted_info)
                         display_main.success('standardising the data before saving')
                         #save the data to data base
                         conn = sqlite3.connect('business_cards.db') 
