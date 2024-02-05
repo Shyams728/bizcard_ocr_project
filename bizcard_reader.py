@@ -152,12 +152,17 @@ def preprocess_extracted_info(extracted_info):
             # Replace 'com' with '.com' if the dot is missing
             extracted_info['email'] = email.replace('com', '.com')
 
+
+
     website = extracted_info['website'].strip().lower()
     if 'www.' not in website:
-        # If "www" is missing, add it to the beginning of the website
-        website_parts = [part.strip() for part in website.split('.') + website.split(' ') if part.strip()]
-        website_parts.insert(0, 'www')  # Insert 'www' at the beginning
+        # Split the website URL by dots ('.') only
+        website_parts = [part.strip() for part in website.split('.') if part.strip()]
+        # Insert 'www' at the beginning
+        website_parts.insert(0, 'www')
         extracted_info['website'] = '.'.join(website_parts)
+
+
     
     extracted_info['address']['city'] = extracted_info['address']['city'].title()
 
