@@ -381,11 +381,11 @@ def main():
                     
                         with display_main:
                             if st.button('Save the Extracted Information and Image to Database'):
-                            # Save to database 
-                            conn = sqlite3.connect('business_cards.db') 
-                            create_table_in_sqlite(conn) 
-                            save_to_database(conn, extracted_info, image) 
-                            st.success('Saved to database!')
+                                # Save to database 
+                                conn = sqlite3.connect('business_cards.db') 
+                                create_table_in_sqlite(conn) 
+                                save_to_database(conn, extracted_info, image) 
+                                st.success('Saved to database!')
 
     if selcted_option == "***View & Modify The Data***":
         with choice_box:
