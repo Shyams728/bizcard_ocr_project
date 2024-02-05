@@ -376,6 +376,16 @@ def main():
         initial_sidebar_state="expanded"
     )
 
+    st.markdown("""
+    <style>
+    .big-font {
+        font-size:25px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<p class="big-font" style="color:blue;">BizCardX: Business Card Information Extractor with OCR</p>', unsafe_allow_html=True)
+
     st.title("BizCardX: Business Card Information Extractor with OCR")
     
     st.markdown("""
@@ -395,7 +405,7 @@ def main():
     selcted_option = st.radio(
         "Select the option",
         ["***Upload a File***", "***View & Modify The Data***"],
-        captions = ["To Exctract the data from given business card.", "To Check the Data in DataBase & incase want to remove the business card from DataBase",],
+        captions = ["To Exctract data from the given business card.", "To check the data in the database and, if necessary, remove the business card from the database",],
         horizontal= True ,
         index=1  # Default selection index 
         )
