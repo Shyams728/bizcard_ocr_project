@@ -247,12 +247,13 @@ def delete_current_card(sqlite_conn, current_row):
 # Function to display the business card image
 def display_bizcard_image(current_row):
     try:
-        st.write("### Business Card Image")
+        display_image = st.container(border=True)
+        st.write("#### Business Card Image")
         bizcard_image_data = current_row['image']
         # Convert image data to PIL image
         bizcard_image = Image.open(BytesIO(bizcard_image_data))
         st.image(bizcard_image, caption='Business Card', width=500)
-        # st.image(bizcard_image, caption='Business Card', use_column_width=True)
+        # display_image.image(bizcard_image, caption='Business Card', use_column_width=True)
     except Exception as e:
         st.error(f"Error displaying business card image: {str(e)}")
 
