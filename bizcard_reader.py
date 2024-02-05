@@ -140,12 +140,7 @@ def preprocess_extracted_info(extracted_info):
 
     extracted_info['company_name'] = re.sub(r'\d+', '', extracted_info['company_name']).strip().title()
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
-    designation = extracted_info['designation'].strip()
-    if designation.upper() == "CEO" or designation.upper() == "CFO":
-        extracted_info['designation'] = designation.upper()  # Keep CEO in uppercase
-    else:
-        # Convert other parts of the designation to title case
-        extracted_info['designation'] = ' '.join([part.title() for part in designation.split('&')])
+    extracted_info['designation'] = extracted_info['designation'].strip().title()
     extracted_info['email'] = extracted_info['email'].lower()
     extracted_info['website'] = extracted_info['website'].lower()
     extracted_info['address']['city'] = extracted_info['address']['city'].title()
