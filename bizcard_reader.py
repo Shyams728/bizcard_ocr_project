@@ -158,9 +158,11 @@ def preprocess_extracted_info(extracted_info):
     if 'www.' not in website:
         # Split the website URL by dots ('.') only
         website_parts = [part.strip() for part in website.split('.') if part.strip()]
-        # Insert 'www' at the beginning
-        website_parts.insert(0, 'www')
-        extracted_info['website'] = '.'.join(website_parts)
+        if 'www' in website_parts:
+            website_parts.remove('www')
+            # Insert 'www' at the beginning
+            website_parts.insert(0, 'www')
+            extracted_info['website'] = '.'.join(website_parts)
 
 
     
