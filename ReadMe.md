@@ -13,7 +13,7 @@ The script applies a series of preprocessing steps to enhance the images before 
 _These optimized images are then input into the OCR algorithm, resulting in improved character recognition accuracy. Additionally, regular expressions are extensively used to clean the extracted text and obtain the required results._
 
 ## See Hosted Streamlit GUI
-**Visit this link to see the project** : [BizcarX reader Streamilt GUI](https://shyams-ocr-project.streamlit.app)
+**Visit this link to see the project** : [BizcardX reader Streamilt GUI](https://shyams-ocr-project.streamlit.app)
 
 ## Getting Started
 
