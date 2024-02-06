@@ -18,17 +18,17 @@ def preprocess_image(input_image):
     image_np = np.array(gray_image)
     return image_np
 
+
 def extract_text(image):
     width, height = image.size
-    split_point = width // 2
-    left_part = image.crop((0, 0, split_point, height))
-    right_part = image.crop((split_point, 0, width, height))
+    split_point_60_percent = int(width * 0.45)
+    left_part = image.crop((0, 0, split_point_60_percent, height))
+    right_part = image.crop((split_point_60_percent, 0, width, height))
     full_image = image
 
     preprocessed_left_part = preprocess_image(left_part)
     preprocessed_right_part = preprocess_image(right_part)
     preprocessed_full_image = preprocess_image(full_image)
-    # st.success('Preprocessing the image...')
 
     reader = easyocr.Reader(['en'])
     left_results = reader.readtext(preprocessed_left_part)
@@ -339,7 +339,9 @@ def data_card():
             display_business_card(current_row)
 
         # Navigation buttons
-        col1, col2, col3, col4= st.columns(4)
+        col1,col5, col2, col3, col4= st.columns(5)
+        
+        col5.write(f'**ID : {current_row[0]}**')
         if col1.button('< Previous') and st.session_state['current_index'] > 0:
             st.session_state['current_index'] -= 1
         if col2.button('Next >') and st.session_state['current_index'] < len(data) - 1:
@@ -423,7 +425,7 @@ def main():
                 st.image(image, caption='Uploaded Business Card', use_column_width=True)
 
                 with data_display:
-                    with st.spinner("Executing please wait......."):
+                    with st.spinner("Executing data extraction please wait......."):
                         time.sleep(2)
                         extracted_info = extract_data_from_bizcard(image)
                         st.success('Extracted successfully!', icon="✅")
@@ -438,7 +440,8 @@ def main():
                         save_to_database(conn, final_info, image) 
                         display_main.success('Saved to database!')
 
-    if selcted_option == "***View & Modify The Data***":
+    if selcted_option == "***View & Modify the Data***":
+
         with choice_box:
             data_card()
             # Upload image
