@@ -11,13 +11,20 @@ import time
 from streamlit_shadcn_ui import table
 
 
+
 def preprocess_image(input_image):
+    # Enhance the contrast of the image
     enhancer = ImageEnhance.Contrast(input_image)
     enhanced_image = enhancer.enhance(2.0)
+    
+    # Convert the enhanced image to grayscale
     gray_image = enhanced_image.convert('L')
+    
+    # Convert the grayscale image to a NumPy array
     image_np = np.array(gray_image)
+    
+    # Return the NumPy array
     return image_np
-
 
 def extract_text(image):
     width, height = image.size
@@ -85,7 +92,7 @@ def extract_additional_info(extracted_info, extracted_text):
               'Rajasthan', 'Sikkim', 'TamilNadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
 
     # Keywords for area recognition
-    area_keywords = ['road', 'floor', 'st ', 'st,', 'street', 'dt ', 'district', 'near', 'beside', 'opposite', 'at ', 'in ',
+    area_keywords = ['road', 'floor', 'st ', 'st,', 'St','street', 'dt ', 'district', 'near', 'beside', 'opposite', 'at ', 'in ',
                      'center', 'main road', 'state', 'country', 'post', 'zip', 'city', 'zone', 'mandal', 'town', 'rural',
                      'circle', 'next to', 'across from', 'area', 'building', 'towers', 'village', 'st ', 'via ', 'via,', 'east ', 'west ', 'north ', 'south ']
 
@@ -138,7 +145,7 @@ def extract_additional_info(extracted_info, extracted_text):
 # Preprocess extracted information before saving to database
 def preprocess_extracted_info(extracted_info):
 
-    extracted_info['company_name'] = extracted_info['company_name']).strip().title()
+    extracted_info['company_name'] = extracted_info['company_name'].strip().title()
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
     extracted_info['designation'] = extracted_info['designation'].strip().title()
     for i in range(len(extracted_info['mobile_numbers'])):
@@ -171,7 +178,7 @@ def preprocess_extracted_info(extracted_info):
         extracted_info['website'] = '.'.join(website_parts)
 
     
-    extracted_info['address']['city'] = extracted_info['address']['city'].title()
+    # extracted_info['address']['city'] = extracted_info['address']['city'].title()
 
     return extracted_info
 
