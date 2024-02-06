@@ -138,7 +138,7 @@ def extract_additional_info(extracted_info, extracted_text):
 # Preprocess extracted information before saving to database
 def preprocess_extracted_info(extracted_info):
 
-    extracted_info['company_name'] = re.sub(r'\d+', '', extracted_info['company_name']).strip().title()
+    extracted_info['company_name'] = extracted_info['company_name']).strip().title()
     extracted_info['card_holder_name'] = extracted_info['card_holder_name'].strip().title()
     extracted_info['designation'] = extracted_info['designation'].strip().title()
     for i in range(len(extracted_info['mobile_numbers'])):
